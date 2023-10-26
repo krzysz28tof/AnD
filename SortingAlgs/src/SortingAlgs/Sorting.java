@@ -9,23 +9,6 @@ package SortingAlgs;
 
 public class Sorting {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int[] A = {3, 2, 3, 1, 23, 1, 2, 3, 4, 4, 4, 4};
-		int[] B = {3, 2, 3, 1, 23, 1, 2, 4, 4, 4, 4};
-		int[] C = {3, 2, 3, 1, 23, 1, 3, 4, 4, 4, 4};
-		int[] D = {3, 2, 3, 23, 1, 2, 3, 4, 4, 4};
-//		recursiveMergeSort(A);
-		straightMergeSort(A);
-		System.out.println(java.util.Arrays.toString(A));
-		straightMergeSort(B);
-		System.out.println(java.util.Arrays.toString(B));
-		straightMergeSort(C);
-		System.out.println(java.util.Arrays.toString(C));
-		straightMergeSort(D);
-		System.out.println(java.util.Arrays.toString(D));
-	}
-	
 	/**
 	 * [l, middle] sorted &&
 	 * [middle+1, r] sorted
