@@ -99,9 +99,38 @@ public class Sorting {
 		}
 	}
 	
-	
-	
-	
-
+	/**
+	 * <b>O</b>(n * log(n)) <br>
+	 * Best case: <b>O</b>(n) <br>
+	 * Creates sorted partitions, so if <i>A</i> partially sorted, we create bigger than length 1 partitions.
+	 */
+	public static void naturalMergeSort(int[] A) {
+		int l, r, m;
+		l = 0;
+		
+		do {
+			r = -1;
+			while (r < A.length - 1) {
+				l = r + 1;
+				
+				// iterate through array until next element is less than current
+				m = l;
+				while (m < A.length - 1 && A[m] <= A[m+1]) {
+					m++;
+				}
+				
+				// now iterate to generate a second sorted partition
+				r = m + 1;	
+				if (r < A.length) {
+					while (r < A.length - 1 && A[r] <= A[r+1]) {
+						r++;
+					}
+					
+					// (m < A.length) && (r < A.length)
+					merge(A, l, m, r);
+				}
+			}
+		} while (l != 0);
+	}
 
 }
