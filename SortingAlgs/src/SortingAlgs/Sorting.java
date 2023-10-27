@@ -7,6 +7,9 @@
 
 package SortingAlgs;
 
+/**
+ * All hidden methods are <b>protected</b>, not private
+ */
 public class Sorting {
 
 	/**
@@ -16,7 +19,7 @@ public class Sorting {
 	 * @param l inclusive
 	 * @param r inclusive
 	 */
-	private static void merge(int[] A, int l, int m, int r) {
+	protected static void merge(int[] A, int l, int m, int r) {
 		int[] B = new int[r - l + 1];
 		
 		int i = l;
@@ -51,7 +54,7 @@ public class Sorting {
 	 * @param l inclusive
 	 * @param r inclusive
 	 */
-	private static void merge(int[] A, int l, int r) {
+	protected static void merge(int[] A, int l, int r) {
 		int m = (l + r) / 2;
 		merge(A, l, m, r);	
 	}
@@ -70,7 +73,7 @@ public class Sorting {
 	 * @param l inclusive
 	 * @param r inclusive
 	 */
-	private static void recursiveMergeSort(int[] A, int l, int r) {
+	protected static void recursiveMergeSort(int[] A, int l, int r) {
 		if (l < r) {
 			int m = (l + r) / 2;
 			recursiveMergeSort(A, l, m);
@@ -131,6 +134,51 @@ public class Sorting {
 				}
 			}
 		} while (l != 0);
+	}
+
+	protected static void swap(int[] A, int i, int j) {
+		int temp = A[i];
+		A[i] = A[j];
+		A[j] = temp;
+	}
+	
+	/*
+	 * Pivot is A[r]
+	 */
+	protected static int partition(int[] A, int l, int r) {
+		int p = A[r];
+		
+		int i = l; // from left to right
+		int j = r - 1; // opposite direction
+		
+		do {
+			while (i < r && A[i] <= p) {
+				i++;
+			}
+			while (j > 0 && A[j] >= p) {
+				j--;
+			}
+			if (i < j)
+				swap(A, i, j);
+		} while (i < j);
+		
+		swap(A, i, r);
+		return i;
+	}
+	
+	/**
+	 * <b>O</b>(n²), average case: <b>O</b>(n * log(n)) 
+	 */
+	public static void quickSort(int[] A) {
+		quickSort(A, 0, A.length-1);
+	}
+	
+	protected static void quickSort(int[] A, int l, int r) {
+		if (l < r && l >= 0 && r < A.length) {
+			int m = partition(A, l, r);
+			quickSort(A, l, m-1);
+			quickSort(A, m+1, r);
+		}
 	}
 
 }

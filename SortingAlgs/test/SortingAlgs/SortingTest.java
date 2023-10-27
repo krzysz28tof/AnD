@@ -2,15 +2,15 @@ package SortingAlgs;
 
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class SortingTest {
 	
 	private int[] A = {3, 2, 3, 1, 23, 1, 2, 3, 4, 4, 4, 4};
-	private int[] B = {1};
-	private int[] C = {2, 1};
-	private int[] D = {3, 2, 1};
+	private int[] B = {3, 2, 3, 1, 23, 1, 2, 3, 4, 4, 4, 4, 23};
+	private int[] C = {1};
+	private int[] D = {2, 1};
+	private int[] E = {3, 2, 1};
 	
 	private void print(String s) {
 		System.out.println(s);
@@ -18,9 +18,10 @@ public class SortingTest {
 	
 	private void initArrays() {
 		A = new int[] {3, 2, 3, 1, 23, 1, 2, 3, 4, 4, 4, 4};
-		B = new int[] {1};
-		C = new int[] {2, 1};
-		D = new int[] {3, 2, 1};
+		B = new int[] {3, 2, 3, 1, 23, 1, 2, 3, 4, 4, 4, 4, 23};
+		C = new int[] {1};
+		D = new int[] {2, 1};
+		E = new int[] {3, 2, 1};
 	}
 	
 	private boolean sorted(int[] A) {
@@ -36,6 +37,7 @@ public class SortingTest {
 		assertTrue(sorted(B));
 		assertTrue(sorted(C));
 		assertTrue(sorted(D));
+		assertTrue(sorted(E));
 	}
 	
 	
@@ -47,6 +49,7 @@ public class SortingTest {
 		Sorting.recursiveMergeSort(B);
 		Sorting.recursiveMergeSort(C);
 		Sorting.recursiveMergeSort(D);
+		Sorting.recursiveMergeSort(E);
 		
 		checkArrays();
 	}
@@ -59,6 +62,7 @@ public class SortingTest {
 		Sorting.straightMergeSort(B);
 		Sorting.straightMergeSort(C);
 		Sorting.straightMergeSort(D);
+		Sorting.straightMergeSort(E);
 		
 		checkArrays();
 	}
@@ -71,6 +75,20 @@ public class SortingTest {
 		Sorting.naturalMergeSort(B);
 		Sorting.naturalMergeSort(C);
 		Sorting.naturalMergeSort(D);
+		Sorting.naturalMergeSort(E);
+		
+		checkArrays();
+	}
+	
+	@Test
+	public void quickSort() {
+		initArrays();
+		
+		Sorting.quickSort(A);
+		Sorting.quickSort(B);
+		Sorting.quickSort(C);
+		Sorting.quickSort(D);
+		Sorting.quickSort(E);
 		
 		checkArrays();
 	}

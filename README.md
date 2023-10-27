@@ -9,3 +9,7 @@ Variants: <br>
 rekursiveMergeSort <br>
 straightMergeSort <br>
 naturalMergeSort
+
+#### QuickSort
+<b>O</b>(n^2), average <b>O</b>(n * log(n)) <br>
+rekursiveQuicksort
