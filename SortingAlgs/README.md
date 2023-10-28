@@ -1,3 +1,32 @@
+# Sorting Algorithms
+<hr>
+
+## Implemented
+rekursiveMergeSort <br>
+straightMergeSort <br>
+naturalMergeSort <br>
+quickSort
+
+## Comparison
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    float: left;
+}
+</style>
+
+<table>
+    <tr> <th></th> <th>mergeSort</th> <th>quickSort</th> </tr>
+    <tr> <th>Runtime</th>  <td><b>O</b>(n * log(n))</td> <td>(<i>O(n^2)</i>) avg.: <b>O</b>(n * log(n))</td> </tr>
+    <tr> <th>Swaps</th>  <td><b>O</b>(n * log(n))</td>  <td>(<i>O(n^2)</i>) avg.: <b>O</b>(n * log(n))</td> </tr>
+    <tr> <th>Extra space</th> <td><b>O</b>(n)</td> <td><b>O</b>(1)</td> </tr>
+
+</table>
+
 ## Notes
 ### Short
 recursion can give StackOverflow <br>
