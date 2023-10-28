@@ -8,17 +8,6 @@ naturalMergeSort <br>
 quickSort
 
 ## Comparison
-<style>
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
-th {
-    float: left;
-}
-</style>
-
 <table>
     <tr> <th></th> <th>mergeSort</th> <th>quickSort</th> </tr>
     <tr> <th>Runtime</th>  <td><b>O</b>(n * log(n))</td> <td>(<i>O(n^2)</i>) avg.: <b>O</b>(n * log(n))</td> </tr>
