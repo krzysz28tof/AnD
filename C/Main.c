@@ -23,8 +23,8 @@ void testBubbleSort() {
 	}
 }
 
-void testMerge() {
-	printf("Testing Merge\n");
+void testMergeArrays() {
+	printf("Testing Merging Arrays\n");
 
 	int arr1[] = {1, 3, 5, 6, 7, 8};
 	int arr2[] = {2, 4, 9, 10, 11, 12};
@@ -37,12 +37,27 @@ void testMerge() {
 	testArray(result, 2*n);
 }
 
+void testMergePartitions() {
+	printf("Testing Merging Partitions in Arrays\n");
+
+	int arr[] = {
+			1, 3, 5, 6, 7, 8,
+			2, 4, 9, 10, 11, 12
+	};
+	const int p = 6; // partition size
+	const int n = 2*p; // whole array size
+
+	mergePart(arr, 0, 6, p);
+
+	testArray(arr, n);
+}
+
 void testNaturalMergeSort() {
 
 }
 
 int main(){
-	testMerge();
+	testMergePartitions();
 
 	return 0;
 }

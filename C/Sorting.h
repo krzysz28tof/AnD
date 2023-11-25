@@ -36,6 +36,7 @@ void bubbleSort(int arr[], int n){
  */
 
 /*
+ * Merges two sorted arrays
  * Both arrays size n
  * result size = 2*n
  */
@@ -60,8 +61,46 @@ void merge(int arr1[], int arr2[], int result[], int n){
 	}
 }
 
-void naturalMergeSort(int arr[], int n){
+/*
+ * merging two sorted partitions of length n in arr,
+ * one starting at i, the other at j.
+ */
+void mergePart(int arr[], int i, int j, const int n){
+	const int N = 2*n;
+	const int START = i;
 
+	const int ENDI = i + n; // end of partition 1
+	const int ENDJ = j + n; // end of partition 2
+
+	int sorted[N];
+	int k = 0; // index of sorted array
+
+	// merge partitions
+	while (i < ENDI && j < ENDJ) {
+		if (arr[i] < arr[j]) {
+			sorted[k++] = arr[i++];
+		}
+		else {
+			sorted[k++] = arr[j++];
+		}
+	}
+	// i = endi || j = endj, but not both
+
+	// merge rest
+	while (i < ENDI) {
+		sorted[k++] = arr[i++];
+	}
+	while (j < ENDJ) {
+		sorted[k++] = arr[j++];
+	}
+
+	// insert sorted partition to arr
+	for (int t = 0; t < N; t++) {
+		arr[START + t] = sorted[t];
+	}
+}
+
+void naturalMergeSort(int arr[], int n){
 }
 
 #endif /* SORTING_H_ */

@@ -39,3 +39,7 @@ and C has no out of bounds check.
 
 ### Functions
 Returning a pointer to a variable, or array-address doesn't make sense, since all variables declared within a function are deleted after the execution of the function.
+
+### Preprocessors / Macros
+Preprocessors begin with a #, like #include or #ifndef. <br>
+\#ifndef is a <i>macro</i>. Defining a macro replaces the macro by an expression, or block of code before compilation.
