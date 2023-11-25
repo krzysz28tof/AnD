@@ -180,5 +180,4 @@ public class Sorting {
 			quickSort(A, m+1, r);
 		}
 	}
-
 }
