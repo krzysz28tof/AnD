@@ -47,7 +47,7 @@ void testMergePartitions() {
 	const int p = 6; // partition size
 	const int n = 2*p; // whole array size
 
-	mergePart(arr, 0, 6, p);
+	mergePart(arr, 0, p, n);
 
 	testArray(arr, n);
 }

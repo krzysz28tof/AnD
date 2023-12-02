@@ -62,42 +62,39 @@ void merge(int arr1[], int arr2[], int result[], int n){
 }
 
 /*
- * merging two sorted partitions of length n in arr,
- * one starting at i, the other at j.
+ * merging [l, m) with [m, r)
  */
-void mergePart(int arr[], int i, int j, const int n){
-	const int N = 2*n;
-	const int START = i;
+void mergePart(int arr[], const int l, const int m, const int r){
+	const int n = r-l; // res length
+	int res[n];
 
-	const int ENDI = i + n; // end of partition 1
-	const int ENDJ = j + n; // end of partition 2
+	int k = 0; // index of res
+	int i = l; // index of 1 Partition
+	int j = m; // index of 2 Partition
 
-	int sorted[N];
-	int k = 0; // index of sorted array
-
-	// merge partitions
-	while (i < ENDI && j < ENDJ) {
+	while (i < m && j < r) {
 		if (arr[i] < arr[j]) {
-			sorted[k++] = arr[i++];
+			res[k++] = arr[i++];
 		}
 		else {
-			sorted[k++] = arr[j++];
+			res[k++] = arr[j++];
 		}
 	}
-	// i = endi || j = endj, but not both
+	// i = m || j = r, but not both
 
-	// merge rest
-	while (i < ENDI) {
-		sorted[k++] = arr[i++];
+	while (i < m) {
+		res[k++] = arr[i++];
 	}
-	while (j < ENDJ) {
-		sorted[k++] = arr[j++];
+	while (j < r) {
+		res[k++] = arr[j++];
 	}
 
-	// insert sorted partition to arr
-	for (int t = 0; t < N; t++) {
-		arr[START + t] = sorted[t];
+	// insert sorted res into arr
+	k = 0;
+	while (k < n) {
+		arr[l + k] = res[k++];
 	}
+
 }
 
 void naturalMergeSort(int arr[], int n){
